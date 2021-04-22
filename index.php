@@ -29,23 +29,15 @@
     $nombre = json_decode($response, true)['esp'];
     $estado = json_decode($response, true)['estado'];
     $datum = mktime(date('H') + 0, date('i'), date('s'), date('m'), date('d'), date('y'));
-    $uploadDate = date('Y.m.d_H:i:s_', $datum);
-
-    if($estado == "on"){
-        $estado = "off";
-    }
-
-    if($estado == "off"){
-        $estado = "on";
-    }
-
+    $uploadDate = date('Y.m.d_H:i:s', $datum);
+  
     echo '<form action="newInstruction.php" method="post">';
     echo 'Dispositivo : <input type="text" name="esp" id="esp" value="'.$nombre.'"> </br>';
     echo 'Estado : <input type="text" name="estado" id="estado" value="'.$estado.'"></br>';
     echo 'Fecha: <input type="text" name="fecha" id="fecha" value="'.$uploadDate.'"></br>';
     echo '<input type="submit" value="Enviar">';
     echo '</form>';
-    echo "El estado del dispositivo ".$nombre . " es: ". $estado . "Se prendió por última vez : " $uploadDate;
+    echo "El estado del dispositivo ".$nombre . " es: ". $estado . "Se prendió por última vez : ". $uploadDate;
 
     ?>
     
