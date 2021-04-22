@@ -5,7 +5,7 @@
     if($estado == "on"){
         $estado = "off";
     } else {
-        $estado = "on"
+        $estado = "on";
     }
 
     $curl = curl_init();
